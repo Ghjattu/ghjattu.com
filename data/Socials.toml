@@ -1,0 +1,13 @@
+[[socials]]
+    id = "email"
+    url = "mailto:icracked369@gmail.com"
+    icon = "envelope"
+    title = "Email"
+    weight = 1
+
+[[socials]]
+    id = "github"
+    url = "https://github.com/Ghjattu"
+    icon = "github"
+    title = "GitHub"
+    weight = 2
