@@ -3,7 +3,8 @@ title: "Golang中有关slice的知识点"
 date: 2023-05-14T20:08:46+08:00
 author: "Ghjattu"
 slug: 'slice-in-golang'
-categories: ["golang"]
+categories: ["Golang"]
+description: '这篇文章覆盖了slice的一部分知识点，包括创建和初始化、判断是否为空、slice的迭代以及内存优化等'
 ---
 
 ## slice的内部实现
