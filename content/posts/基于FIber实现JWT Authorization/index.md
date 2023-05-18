@@ -1,7 +1,7 @@
 ---
 title: "Golang JWT Authorization with Fiber"
 date: 2023-05-16T17:05:24+08:00
-lastmod: 2023-05-18
+lastmod: '2023-05-18'
 author: 'Ghjattu'
 slug: 'go-jwt-authorization-with-fiber'
 categories: ['Golang']

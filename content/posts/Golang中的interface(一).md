@@ -1,7 +1,7 @@
 ---
 title: "Golang中的接口interface(一)"
 date: 2023-05-15T15:16:55+08:00
-lastmod: 2023-05-15
+lastmod: '2023-05-15'
 author: 'Ghjattu'
 slug: 'golang-interface-part-1'
 description: '这篇文章简要地介绍了Golang中接口的概念、内部表示以及基本的声明和实现方式'

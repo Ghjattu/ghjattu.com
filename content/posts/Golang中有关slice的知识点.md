@@ -1,7 +1,7 @@
 ---
 title: "Golang中有关slice的知识点"
 date: 2023-05-14T20:08:46+08:00
-lastmod: 2023-05-15
+lastmod: '2023-05-15'
 author: "Ghjattu"
 slug: 'slice-in-golang'
 categories: ["Golang"]
