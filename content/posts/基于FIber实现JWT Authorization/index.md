@@ -1,7 +1,7 @@
 ---
 title: "Golang JWT Authorization with Fiber"
 date: 2023-05-16T17:05:24+08:00
-lastmod: '2023-05-18'
+lastmod: '2023-05-19'
 author: 'Ghjattu'
 slug: 'go-jwt-authorization-with-fiber'
 categories: ['Golang']
@@ -80,6 +80,10 @@ HMACSHA256(
 secret-key 是服务器生成的并且保存在服务器，可以用来验证 token 是否被篡改，JWT 签发也是服务器完成的，secret-key 在任何时候都不应该泄漏出去。
 
 关于 JWT 的更多信息，可以参阅 [jwt.io](https://jwt.io/introduction/) 。
+
+JWT 授权的过程如下图所示：
+
+<img src="./JWT授权序列图.png" alt="JWT授权序列图"  />
 
 下面我们用 Fiber 框架实现一个简单的带有 JWT 授权的 REST API 。
 
