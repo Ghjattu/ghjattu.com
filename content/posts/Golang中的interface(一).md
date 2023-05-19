@@ -6,6 +6,7 @@ author: 'Ghjattu'
 slug: 'golang-interface-part-1'
 description: '这篇文章简要地介绍了Golang中接口的概念、内部表示以及基本的声明和实现方式'
 categories: ["Golang"]
+tags: ['Go', 'interface']
 ---
 
 ## 什么是接口

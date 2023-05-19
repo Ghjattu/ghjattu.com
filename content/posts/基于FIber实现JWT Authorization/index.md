@@ -5,8 +5,8 @@ lastmod: '2023-05-19'
 author: 'Ghjattu'
 slug: 'go-jwt-authorization-with-fiber'
 categories: ['Golang']
-tags: ['Fiber', 'jwt']
 description: "Go使用Fiber框架实现简单的带有JSON Web Token授权的REST API"
+tags: ['Go', 'JWT', 'Fiber', 'REST API']
 ---
 
 ## 什么是JWT
