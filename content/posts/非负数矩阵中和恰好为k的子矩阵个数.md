@@ -5,7 +5,7 @@ date: '2022-11-22'
 lastmod: '2022-11-22'
 slug: 'the-number-of-submatrices-whose-sum-is-k-in-nonnegative-matrix'
 categories: ["XCPC"]
-tags: ['前缀和', '双指针']
+tags: ['Prefix Sum', 'Two Pointers']
 ---
 
 
