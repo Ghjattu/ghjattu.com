@@ -39,6 +39,3 @@ tags: ['Hashing', 'Load Balancing']
 
 在使用一致性哈希算法后，增加或减少服务器一般只会导致 $K/N$ 个 key 需要重新定位，其中 $K$ 是关键字 key 的总数，$N$ 是服务器的数量，也就是说，只需要重新定位附近的一小部分数据，大大减轻了数据库的负担。
 
-## 参考资料
-
-1. [A Guide to Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing) 

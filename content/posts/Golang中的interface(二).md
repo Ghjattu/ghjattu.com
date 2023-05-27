@@ -97,9 +97,3 @@ type Greeting interface {
 }
 ```
 
-## 参考资料
-
-1. 《Go in Action》
-2. [MethodSets](https://github.com/golang/go/wiki/MethodSets) 
-3. [Why value stored in an interface is not addressable in Golang](https://stackoverflow.com/questions/48790663/why-value-stored-in-an-interface-is-not-addressable-in-golang)  
-4. [Why are map values not addressable?](https://stackoverflow.com/questions/38168329/why-are-map-values-not-addressable) 
