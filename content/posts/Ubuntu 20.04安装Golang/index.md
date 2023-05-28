@@ -1,7 +1,7 @@
 ---
-title: "Ubuntu 20.04安装Golang"
+title: "Ubuntu 20.04安装Golang并使用VSCode远程连接"
 date: 2023-05-26T12:45:53+08:00
-lastmod: '2023-05-26'
+lastmod: '2023-05-28'
 author: 'Ghjattu'
 slug: 'install-golang-in-ubuntu'
 categories: ['Golang']
@@ -65,3 +65,46 @@ source .profile
 然后在远程资源管理器中刷新一下就能看到添加的服务器的地址，点击服务器然后连接，成功后会在 VSCode 上方要求输入密码，验证通过后就可以像在本地一样写代码了。
 
 想关闭连接的话就点击左下角的 SSH：xxx.xxx.xxx，在弹出的对话框中点击关闭就OK了。
+
+## 使用密钥登陆服务器
+
+每次手动输入密码太麻烦了，密钥登陆是更好的解决方案。
+
+SSH 密钥登陆的大致过程如下：
+
+1. 用户在客户端使用 `ssh-keygen` 命令生成私钥和公钥
+2. 用户将公钥上传到服务器的指定位置
+3. 客户端向服务器发起登陆请求，服务器收到后返回一段随机数据
+4. 客户端用私钥加密随机数据再发给服务器
+5. 服务器收到后用公钥解密，如果和原始数据一致即身份验证通过
+
+下面生成一对密钥：
+
+```shell
+$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/username/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+```
+
+第一个问题询问密钥的保存路径，一般默认即可；第二个问题询问私钥的密码，设置了的话即使其他人拿到了私钥也需要输入密码验证身份，为了方便可以直接留空，按回车键即可。
+
+最后生成了两个文件：`ssh/id_rsa` 是私钥，`ssh/id_rsa.pub` 是公钥。
+
+可以用下面两个命令修改密钥的权限，防止其他用户读取：
+
+```shell
+chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa.pub
+```
+
+接下来把公钥上传到服务器，OpenSSH 规定公钥需要保存到服务器 `~/.ssh/authorized_keys` 文件中，同时也提供了一个命令 `ssh-copy-id` 命令来自动上传：
+
+**注意：** `ssh-copy-id` 命令会将客户端的公钥上传到服务器的 `authorized_keys` 文件末尾，如果之前文件不为空的话，务必确定文件末尾是一个换行符。
+
+```shell
+ssh-copy-id -i id_rsa username@host
+```
+
+接着会要求输入服务器的登陆密码，正常输入即可。之后使用 `ssh username@host` 命令就可以不用密码了，为了安全还可以进一步关闭服务器的密码登陆。
