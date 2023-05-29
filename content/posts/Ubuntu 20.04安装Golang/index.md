@@ -40,10 +40,12 @@ cd ~
 vim .profile
 ```
 
-把下面一行加入到 `.profile` 文件中：
+把下面几行加入到 `.profile` 文件中：
 
 ```shell
-export PATH=$PATH:/usr/local/go/bin
+export GOPATH="/root/go"
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 ```
 
 保存并退出，重新加载环境变量：
