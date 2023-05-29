@@ -4,9 +4,9 @@ date: 2023-05-26T12:45:53+08:00
 lastmod: '2023-05-28'
 author: 'Ghjattu'
 slug: 'install-golang-in-ubuntu'
-categories: ['Golang']
+categories: ['Linux']
 description: "在操作系统为Ubuntu20.04的云服务器ECS上安装配置Golang，并在本地使用VSCode远程连接。"
-tags: ['Go', 'Linux']
+tags: ['Go']
 ---
 
 为了更好地学（瞎）习（搞）Linux 命令，今天我去阿里云用学生优惠白嫖了一台 ECS ，这篇文章记录一下从连接 ECS 到安装 Go 最后用 VSCode 编写代码的过程和遇到的问题。
