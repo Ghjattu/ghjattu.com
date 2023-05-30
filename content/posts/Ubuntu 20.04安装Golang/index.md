@@ -43,9 +43,7 @@ vim .profile
 把下面几行加入到 `.profile` 文件中：
 
 ```shell
-export GOPATH="/root/go"
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+export PATH=$PATH:/usr/local/go/bin
 ```
 
 保存并退出，重新加载环境变量：
@@ -57,6 +55,13 @@ source .profile
 现在执行 `go version` 看到版本信息 `go version go1.20.4 linux/amd64` 就说明安装成功了。
 
 执行 `go env` 可以看到相关的环境变量，例如 `GOMODULE` 和 `GOPROXY` 都可以设置成和本地一致。 
+
+后续在开发 Go 程序的时候会经常用 `go install` 命令来安装可执行程序，默认安装到 `$GOPATH/bin` 目录下，因此建议在 `.profile` 文件中增加一行：
+```shell
+export PATH=$PATH:$GOPATH/bin
+```
+防止后续开发过程中可能产生的 `xxx command not found` 错误。
+
 
 ## VSCode连接
 
