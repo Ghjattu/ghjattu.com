@@ -385,4 +385,11 @@ Perfect ! 如果改变 token 的几个字母，程序也会正确返回 401 响�
 
 完结撒花 🎉 ！完整的代码在[我的仓库](https://github.com/Ghjattu/golang-basic-projects/tree/main/jwt-authorization)。😃
 
+## 参考资料
 
+1. [https://jwt.io/introduction](https://jwt.io/introduction) 
+2. [Creating a New JWT](https://golang-jwt.github.io/jwt/usage/create/)  
+3. [https://pkg.go.dev/github.com/joho/godotenv#section-readme](https://pkg.go.dev/github.com/joho/godotenv#section-readme) 
+4. [Go Fiber 框架系列教程 03：中间件](https://polarisxu.studygolang.com/posts/go/fiber/go-fiber-basic-tutorial03/) 
+5. [https://docs.gofiber.io/api/app#route-handlers](https://docs.gofiber.io/api/app#route-handlers) 
+6. [Simple example of parsing and validating a token](https://pkg.go.dev/github.com/golang-jwt/jwt/v5#example-Parse-Hmac) 

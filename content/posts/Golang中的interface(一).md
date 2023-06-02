@@ -229,3 +229,7 @@ Unknown type
 
 不过有一点需要注意，程序中每一个 `case` 会被顺序地考虑，当 `case` 中包含多个接口类型时，编写 `case` 语句的顺序就十分重要，因为一个类型可能实现了多个接口，导致多个 `case` 语句同时匹配。
 
+## 参考资料
+
+1. 《The Go Programming Language》
+1. [A Tour of Go](https://go.dev/tour/welcome/1)

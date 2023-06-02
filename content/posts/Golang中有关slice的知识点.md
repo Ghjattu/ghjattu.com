@@ -149,3 +149,7 @@ func main() {
 	fmt.Printf("%p\n", &newSlice[0])  // 0x140000a6020
 }
 ```
+
+## 参考资料
+1. 《Go in Action》
+2. 《The Go Programming Language》
