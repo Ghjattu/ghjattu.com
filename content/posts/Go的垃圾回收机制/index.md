@@ -118,6 +118,6 @@ Go 在 V1.7 及之前的版本中，使用的是插入写屏障，并且仅应�
 
 ## 参考资料
 
-1. [Wikipedia: Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection) 
-2. [Tricolor Algorithms in Go](https://www.developer.com/languages/tricolor-algorithm-golang/) 
-3. [The principle of Go language garbage collector implementation](https://www.sobyte.net/post/2021-12/golang-garbage-collector/#google_vignette) 
+1. [Wikipedia: Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection)
+2. [Tricolor Algorithms in Go](https://www.developer.com/languages/tricolor-algorithm-golang/)
+3. [The principle of Go language garbage collector implementation](https://www.sobyte.net/post/2021-12/golang-garbage-collector/#google_vignette)
