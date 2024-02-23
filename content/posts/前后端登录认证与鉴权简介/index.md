@@ -1,7 +1,12 @@
 ---
-title: "Posts"
+title: "Web前后端登录认证与授权浅析"
 date: 2024-02-21T14:23:04+08:00
-draft: true
+lastmod: '2024-02-21'
+author: 'Ghjattu'
+slug: 'analysis-of-web-login-authentication-and-authorization'
+categories: ['Authentication']
+description: "本文从HTTP的无状态特征出发，分析为什么需要保存用户的登录状态，并简要分析了几种维护登录状态的方案，比如 Web 提供的 localStorage 和 sessionStorage 的基本概念，基于它们的缺点，进而提出了 cookie 和 session（或 token） 结合的优化方案。此外，还介绍了单点登录（SSO）的概念，并对 CAS 和 OAuth2 两种协议做了简要的介绍。"
+tags: ['JWT', 'SSO', 'OAuth']
 ---
 
 ## 背景
@@ -20,7 +25,7 @@ cookie 是直接存储在浏览器中的一段数据，它通常是由服务器�
 
 所以，cookie 最常见的用处之一就是维护登录状态。此时，后端服务会在用户登录之后创建一个 session，它一般是一条数据库记录，保存了该用户的相关信息，然后后端在响应中使用 `Set-Cookie` 来让浏览器保存 session 的 id，下次向相同域的请求，浏览器会带上这个 id，服务器用 id 去匹配 session 来判断用户登录。
 
-![基于session认证的时序图](./基于session认证的时序图.svg "基于 session 认证")
+![基于session认证的时序图](./基于session认证的时序图.svg "基于 session 认证时序图")
 
 在使用 cookie 时，为了安全，需要设置一些选项：
 - `secure` ：这个选项使得 cookie 只能通过 HTTPS 传输。
@@ -37,7 +42,7 @@ cookie 是直接存储在浏览器中的一段数据，它通常是由服务器�
 并且 JWT 可以为设置一个过期时间，后端校验 token 失败后返回一个错误响应，前端可以直接重定向到登录页面。
 
 (借用一下参考文章中的时序图)
-![基于token认证的时序图](./基于token认证的时序图.png "基于 token 认证")
+![基于token认证的时序图](./基于token认证的时序图.png "基于 token 认证时序图")
 
 ### Refresh Token
 当我们使用 JWT 时，为了更高的安全性，尤其是一些权限敏感的资源，我们通常会为 token 设置一个较短的过期时间，这样即使 token 被盗用，也只会造成较短的危害，但是较短的过期时间会导致用户频繁地执行登录操作，对用户不友好；此外，当用户的权限发发生变化时，对应的 token 也需要变化，但是因为权限变更导致用户再次登录也是不好的设计。因此，我们引入了 Refresh Token 的概念，而原先的 token 被称为 Access Token。
@@ -45,7 +50,7 @@ cookie 是直接存储在浏览器中的一段数据，它通常是由服务器�
 Refresh Token 也是一个 JWT，它有着比 Access Token 更久的过期时间，作用在于：当 Access Token 过期用户权限变更时，前端会收到一个错误响应，然后前端会用 Refresh Token 去获取一个新的 Access Token，如果 Refresh Token 过期，则用户需要重新登录。
 
 (再借用一下参考文章中的时序图)
-![基于Refresh Token认证的时序图](./基于Refresh%20Token认证的时序图.png "基于 Refresh Token 认证")
+![基于Refresh Token认证的时序图](./基于Refresh%20Token认证的时序图.png "基于 Refresh Token 认证时序图")
 
 上述的 cookie 与 token 结合的方案已经可以满足很多的应用需求了，不过该方式还是有一些缺陷：
 1. 无法实现主动踢人功能。如果要实现这个功能，可以考虑增加一个黑名单缓存来保存被踢用户的 id，当用户发起请求时，检查 token 中的 id 是否在黑名单缓存中，若在，则返回错误响应，前端重定向至登录界面。
